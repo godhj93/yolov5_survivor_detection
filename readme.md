@@ -23,6 +23,8 @@ Test        |---- images
 conda create -n yolo_etri python=3.8
 conda activate yolo_etri
 (yolo_etri) pip install -r requirements.txt
+(yolo_etri) conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
+
 ```
 
 ### 3. 학습 데이터 경로 지정
@@ -53,7 +55,7 @@ train_data  |---- Train --------|---- images
                                 |---- labels
 ...
 
-(yolo_etri) train_yolov5s_fusion.py
+train_yolov5s_fusion.py
 ...
 
 
@@ -72,7 +74,7 @@ names: ['person']  # class names
 
 ### 5. 학습 시작
 ```
-python3 train_yolov5s_fusion.py
+(yolo_etri) python3 train_yolov5s_fusion.py
 ```
 
 
