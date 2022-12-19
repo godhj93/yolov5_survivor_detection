@@ -1,9 +1,10 @@
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
-path: /media/swbaelab/nvme/ETRI_dataset/UNIST_dataset_for_experiment_include_background
-train: train/images
-val: val/images
-test: 
+# path: /media/swbaelab/nvme/ETRI_dataset/UNIST_dataset_for_experiment_include_background
+path: train_data
+train: Train/images/
+val: Validation/images
+test: Test/images
 
 # Classes
 nc: 1  # number of classes
