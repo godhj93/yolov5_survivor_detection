@@ -1,0 +1,80 @@
+# 설치 방법
+
+## 학습 프레임 워크 구축 
+
+### 1. 학습 데이터 다운로드 (구글드라이브 링크 중 클릭 후 YOLO_TRAIN_DATA.zip 다운로드)
+*참고: 최종제출데이터셋.zip과 같은 내용이나 학습 구현을 용이하게 하기위해 재구성한 파일임)
+```
+학습 데이터 구성
+
+Train       |---- images
+            |---- images_IR
+            |---- labels
+
+Validataion |---- images
+            |---- images_IR
+            |---- labels
+
+Test        |---- images
+            |---- images_IR
+            |---- labels
+```
+
+### 1-1. 의존성 패키지 설치
+```
+conda create -n yolo_etri python=3.8
+pip install -r requirements.txt
+```
+
+### 1-2. 학습 데이터 경로 지정
+
+#### 학습 데이터 폴더 다음과 같이 구성
+```
+mkdir train_data 
+mv Train train_data
+mv Validation train_data
+mv Test train_data
+```
+
+최종 폴더 구성은 다음과 같아야 함
+```
+data        |---- coco.yaml
+            |---- myCustomData.yaml
+            |---- ...
+
+train_data  |---- Train --------|---- images
+                                |---- images_IR
+                                |---- labels
+
+            |---- Validataion --|---- images
+                                |---- images_IR
+                                |---- labels
+            
+            |---- Test ---------|---- images
+                                |---- images_IR
+                                |---- labels
+...
+
+train_yolov5s_fusion.py
+...
+
+
+```
+#### data/myCustomData.yaml 내용을 다음과 같이 수정
+```
+path: train_data
+train: Train/images/
+val: Validation/images/
+test: Test/images/
+
+# Classes
+nc: 1  # number of classes
+names: ['person']  # class names
+```
+
+#### 학습 시작
+```
+python3 train_yolov5s_fusion.py
+```
+
+
